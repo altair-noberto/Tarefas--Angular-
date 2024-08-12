@@ -1,0 +1,54 @@
+<div class="login">
+    <h1>Tarefas</h1>
+    <div class="container">
+        @if(Cadastro){
+            <h2>Cadastro</h2>
+            <form (submit)="Cadastrar()" [formGroup]="CadastroForm">
+                <div class="FormGroup">
+                    <label class="formLabel" for="Nome">Seu nome</label>
+                    <input class="InputTxt" maxlength="30" type="text" id="Nome" formControlName="nome">
+                </div>
+                <div class="FormGroup">
+                    <label class="formLabel" for="Email">Email</label>
+                    <input class="InputTxt" maxlength="256" type="email" id="Email" formControlName="email">
+                </div>
+                <div class="FormGroup">
+                    <label class="formLabel" for="SenhaC">Sua senha</label>
+                    <input class="InputTxt" maxlength="16" id="SenhaC" (keyup)="VerificarSenha()" type="password" formControlName="senha">
+                </div>
+                <div class="validacao">
+                    <li [ngClass]="validmaiuscula ? 'check' : ''">A senha precisa ter pelo menos uma letra maiúscula</li>
+                    <li [ngClass]="validminuscula ? 'check' : ''">A senha precisa ter pelo menos uma letra minúscula</li>
+                    <li [ngClass]="validnumero ? 'check' : ''">A senha precisa ter pelo menos um número</li>
+                    <li [ngClass]="validsimbolo ? 'check' : ''">A senha precisa ter pelo menos um símbolo</li>
+                    <li [ngClass]="validtamanho ? 'check' : ''">A senha precisa ter entre 6 e 16 caracteres</li>
+                </div>
+                <div class="FormGroup">
+                    <label class="formLabel" for="confirmaSenha">Digite novamente sua senha</label>
+                    <input class="InputTxt" id="confirmaSenha" (keyup)="VerificarSenha()" type="password" formControlName="confirmaSenha">
+                </div>
+                <input type="submit" [disabled]="desabilitarbutton" value="Cadastrar">
+            </form>
+            <p [ngStyle]="{'color': mensagemsucesso ? 'green' : 'red'}">{{mensagemcadastro}}</p>
+            <a class="TrocarPag" (click)="AlterarPagina()">ir para login</a>
+        }
+        @else {
+            <h2>Login</h2>
+        <form [formGroup]="LoginForm" (submit)="Login()">
+            <div class="FormGroup">
+                <label class="formLabel" for="Email">Email</label>
+                <input class="InputTxt" type="email" formControlName="email" id="Email">
+            </div>
+            <div class="FormGroup">
+                <label class="formLabel" for="Email">Senha</label>
+                <input class="InputTxt" type="password" formControlName="senha" id="Senha">
+            </div>
+            <input type="submit" value="Efetuar login">
+        </form>
+        <p [style]="{'color': mensagemsucesso ? 'green' : 'red'}">{{mensagemlogin}}</p>
+        <div class="TrocarPag">
+            <a class="TrocarPag" (click)="AlterarPagina()">Não possui conta? clique para realizar cadastro</a>
+        </div>
+        }
+    </div>
+</div>

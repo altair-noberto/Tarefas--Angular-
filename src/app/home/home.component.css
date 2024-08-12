@@ -1,0 +1,194 @@
+nav{
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+nav > div {
+    padding: 2em;
+}
+
+nav > div > a {
+    text-decoration: underline;
+    font-size: 1.2rem;
+    color: var(--font);
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+nav > div > a:hover{
+    color: var(--main);
+}
+
+.HomeDiv{
+    display: flex;
+    flex-direction: column;
+    margin: 0 3em;
+    gap: 20px;
+}
+
+header{
+
+}
+
+.InputTxt{
+    width: 50%;
+}
+
+.container{
+    margin: 0;
+    border-radius: 10px;
+    box-shadow: var(--box-shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.CriarTarefaBtn{
+    font-size: 1.5rem;
+    color: var(--font);
+    text-decoration: underline;
+    cursor: pointer;
+    font-weight: 500;
+    transition: 0.2s;
+    width: fit-content;
+}
+
+.CriarTarefaBtn:hover{
+    color: var(--vibrante);
+}
+
+.CriarForm{
+    padding: 1em 0;
+    box-shadow: var(--box-shadow);
+    background-color: hsl(0, 4%, 5%);
+}
+
+textarea{
+    width: max-content;
+    resize: none;
+    border-radius: 0;
+    padding: 0.8em;
+    min-height: 100px;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.NotificacaoWrapper{
+    width: 90%;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.Notificacao{
+    position: absolute;
+    top: 20px;
+    /* left: 200px; */
+    padding: 2em;
+    background-color: var(--bg-container);
+    border-bottom: 3px solid var(--main);
+    width: fit-content;
+    animation: ExibirNotificacao 4s forwards;
+}
+
+.NotificacaoText{
+    font-size: 1.3em;
+}
+
+.fa-circle-xmark{
+    color: var(--vibrante);
+}
+
+.fa-circle-check{
+    color: green;
+}
+
+.Tarefa{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-shadow: var(--box-shadow-input);
+    padding: 0.5em 1em;
+}
+
+.HeaderTarefas{
+    width: 80%;
+}
+
+.opcoes{
+    display: flex;
+    width: 100%;
+    gap: 10px;
+}
+
+.TarefaHeader{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.HeaderEsquerda, .HeaderDireita{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.HeaderDireita{
+    justify-content: flex-end;
+}
+
+.Descricao{
+    max-height: 0;
+    overflow: hidden;
+}
+
+.Aberto{
+    max-height: fit-content;
+}
+
+.ExibirDesc{
+    padding: 0.3em 0.5em;
+    border-radius: 20px;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.ExibirDesc:hover{
+    background-color: var(--desfoque);
+}
+
+.AtualizarIcon, .RemoverIcon{
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.AtualizarIcon:hover{
+    color: green;
+}
+
+.RemoverIcon:hover{
+    color: var(--vibrante);
+}
+
+@keyframes ExibirNotificacao{
+    0%{
+        opacity: 0;
+        transform: translateY(-50px)
+    }
+    25%{
+        opacity: 100;
+        transform: translateY(0)
+    }
+    50%{
+        opacity: 100;
+        transform: translateY(0)
+    }
+    75%{
+        opacity: 100;
+        transform: translateY(0)
+    }
+    100%{
+        opacity: 0;
+        transform: translateY(-50px)
+    }
+}

@@ -1,1 +1,122 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100vh; width: 100vw; }
+
+*{
+    color: var(--font);
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    --main: #BF0813;
+    --font: #2b2525;
+    --desfoque: #7b828b;
+    --bg: #EFDFC5;
+    --bg-container: #e7d4b5;
+    --vibrante: #DC2011;
+    --dark: #380F17;
+    --box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    --box-shadow-input: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    background-color: var(--bg);
+}
+
+body.dark{
+    --main: #BF0813;
+    --font: #f0e9df;
+    --desfoque: #4C4F54;
+    --bg: hsl(0, 12%, 9%);
+    --bg-container: #0d0c0c;
+    --vibrante: #DC2011;
+    --dark: #380F17;
+    --box-shadow: rgba(0, 0, 0, 0.2) 0px 7px 29px 0px;
+}
+
+form{
+    min-width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.FormGroup{
+    display: flex;
+    justify-content: center;
+}
+
+.formLabel{
+    display: inline-block;
+    background-color: var(--bg);
+    margin-bottom: 10px;
+    position: absolute;
+    padding: 0 10px;
+    transform: translate(0, -10px);
+}
+
+.InputTxt{
+    border: 1px solid var(--desfoque);
+    background-color: transparent;
+    color: var(--desfoque);
+    height: 55px;
+    padding: 0 0.8rem;
+    outline: none;
+    width: 100%;
+    transition: 0.2s;
+    font-size: 1rem;
+    box-shadow: var(--box-shadow-input);
+}
+
+.InputTxt:hover, .InputTxt:focus{
+    border-color: var(--font);
+    color: var(--font);
+}
+
+button, input[type="submit"]{
+    padding: 0.8em 1.2em;
+    background-color: transparent;
+    border: 1px solid var(--desfoque);
+    color: var(--desfoque);
+    outline: none;
+    font-size: 1rem;
+    border-radius: 20px;
+    transition: 0.2s;
+    box-shadow: var(--box-shadow-input);
+    cursor: pointer;
+}
+
+button:disabled, input[type="submit"]:disabled{
+    cursor: initial;
+    opacity: 0.4;
+}
+
+button:hover:not(:disabled), input[type="submit"]:hover:not(:disabled){
+    color: var(--bg);
+    border-color: var(--font);
+    background-color: var(--font);
+}
+
+.container{
+    background-color: var(--bg-container);
+    padding: 2em;
+    width: 90%;
+}
+
+.paginacao{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.paginacao > a:not(.atual) {
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.paginacao > a:hover:not(.atual){
+    color: var(--main);
+}
+
+.paginacao > a.atual{
+    color: var(--desfoque)
+}

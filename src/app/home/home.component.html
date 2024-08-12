@@ -1,0 +1,53 @@
+<nav>
+    <div><a (click)="Logout()">Desconectar</a></div>
+</nav>
+
+<div class="HomeDiv">
+    <header>
+        <h1>Olá, {{NomeUsuario}}!</h1>
+        <div class="NotificacaoWrapper">
+            <div *ngIf="Notificacao" class="Notificacao">
+                <p class="NotificacaoText"><i [ngClass]="NotificacaoCheck ? 'fa-solid fa-circle-check' : 'fa-solid fa-circle-xmark'"></i> {{NotificacaoMsg}}</p>
+            </div>
+        </div>
+    </header>
+    <div class="TarefaHeader">
+        <input class="InputTxt" style="width: 50%;" type="text" name="Busca" id="Busca" [(ngModel)]="Busca" (keyup)="CarregarTarefasBusca(Busca)" placeholder="Buscar tarefa"/>
+    </div>
+    <div class="container">
+        <a class="CriarTarefaBtn" (click)="AtivarModoCriar()"> {{ModoCriar? '-' : '+'}} Criar Tarefa</a>
+        @if(ModoCriar){
+            <div class="CriarForm">
+                <form [formGroup]="FormCriar" (submit)="CriarTarefa()">
+                    <input type="text" placeholder="Título da tarefa" formControlName="titulo" id="Titulo" class="InputTxt">
+                    <textarea type="text" placeholder="Descrição da tarefa" formControlName="descricao" id="Descricao" class="InputTxt"></textarea>
+                    <div class="SubmitCriar">
+                        <input type="submit" value="Criar Tarefa">
+                    </div>
+                </form>
+            </div>
+        }
+        <div class="ListaTarefas">
+            @for(t of ExibirTarefa; track $index){
+                <div class="tarefa">
+                    <div class="Tarefa">
+                        <div class="TarefaHeader">
+                            <div class="HeaderEsquerda">
+                                <i class="ExibirDesc fa-solid fa-caret-right"></i>
+                                <h3>{{t.titulo}}</h3>
+                            </div>
+                            <div class="HeaderDireita">
+                                <i class="AtualizarIcon fa-solid fa-pencil"></i>
+                                <i class="RemoverIcon fa-solid fa-trash"></i>
+                            </div>
+                        </div>
+                        <p class="Descricao">{{t.descricao}}</p>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+    <div class="paginacao">
+        <a [ngClass]="p === PaginaAtual ? 'atual' : ''" *ngFor="let p of ListPaginas" (click)="CarregarTarrefas(p)">{{p}}</a>
+    </div>
+</div>
