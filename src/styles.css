@@ -120,3 +120,18 @@ button:hover:not(:disabled), input[type="submit"]:hover:not(:disabled){
 .paginacao > a.atual{
     color: var(--desfoque)
 }
+
+.CriarForm{
+    padding: 1em 0;
+    box-shadow: var(--box-shadow);
+    background-color: hsl(0, 4%, 5%);
+}
+
+textarea{
+    width: max-content;
+    resize: none;
+    border-radius: 0;
+    padding: 0.8em;
+    min-height: 100px;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}

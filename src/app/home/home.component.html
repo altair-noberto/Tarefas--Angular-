@@ -5,11 +5,7 @@
 <div class="HomeDiv">
     <header>
         <h1>Olá, {{NomeUsuario}}!</h1>
-        <div class="NotificacaoWrapper">
-            <div *ngIf="Notificacao" class="Notificacao">
-                <p class="NotificacaoText"><i [ngClass]="NotificacaoCheck ? 'fa-solid fa-circle-check' : 'fa-solid fa-circle-xmark'"></i> {{NotificacaoMsg}}</p>
-            </div>
-        </div>
+        <app-notificacao [NotificarObj]="notificacao"></app-notificacao>
     </header>
     <div class="TarefaHeader">
         <input class="InputTxt" style="width: 50%;" type="text" name="Busca" id="Busca" [(ngModel)]="Busca" (keyup)="CarregarTarefasBusca(Busca)" placeholder="Buscar tarefa"/>
@@ -29,21 +25,7 @@
         }
         <div class="ListaTarefas">
             @for(t of ExibirTarefa; track $index){
-                <div class="tarefa">
-                    <div class="Tarefa">
-                        <div class="TarefaHeader">
-                            <div class="HeaderEsquerda">
-                                <i class="ExibirDesc fa-solid fa-caret-right"></i>
-                                <h3>{{t.titulo}}</h3>
-                            </div>
-                            <div class="HeaderDireita">
-                                <i class="AtualizarIcon fa-solid fa-pencil"></i>
-                                <i class="RemoverIcon fa-solid fa-trash"></i>
-                            </div>
-                        </div>
-                        <p class="Descricao">{{t.descricao}}</p>
-                    </div>
-                </div>
+                <app-tarefa [tarefa]="t"></app-tarefa>
             }
         </div>
     </div>

@@ -2,14 +2,17 @@ import { Component, OnInit } from '@angular/core';
 import { VariaveisGlobais } from '../../environments/environments';
 import {Router} from "@angular/router"
 import { HomeService } from '../services/home.service';
-import { Tarefa, CriarTarefa } from '../models/home.model';
+import { Tarefa, CriarTarefa, Notificacao } from '../models/home.model';
 import { CommonModule } from '@angular/common';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TarefaComponent } from '../tarefa/tarefa.component';
+import { NotificacaoComponent } from '../notificacao/notificacao.component';
+
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, FormsModule, ReactiveFormsModule],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, TarefaComponent, NotificacaoComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
@@ -38,11 +41,11 @@ export class HomeComponent implements OnInit{
 
   ExibirTarefa:Tarefa[] = [];
 
-  NotificacaoCheck:boolean = false;
-
-  NotificacaoMsg:string = "";
-
-  Notificacao:boolean = false;
+  notificacao:Notificacao = {
+    NotificacaoCheck: false,
+    NotificacaoMsg: "",
+    Notificacao: false,
+  }
 
   NomeUsuario:string|undefined = localStorage.getItem('Nome')?.split(' ')[0];
 
@@ -114,10 +117,10 @@ export class HomeComponent implements OnInit{
   }
 
   Notificar(mensagem:string, valid:boolean){
-    this.NotificacaoMsg = mensagem;
-    this.NotificacaoCheck = valid;
-    this.Notificacao = true;
-    setTimeout(() => this.Notificacao = false, 4000);
+    this.notificacao.NotificacaoMsg = mensagem;
+    this.notificacao.NotificacaoCheck = valid;
+    this.notificacao.Notificacao = true;
+    setTimeout(() => this.notificacao.Notificacao = false, 4000);
   }
 
   CarregarTarrefas(Pagina:number){

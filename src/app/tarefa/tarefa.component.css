@@ -1,0 +1,66 @@
+.Tarefa{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-shadow: var(--box-shadow-input);
+    padding: 0.5em 1em;
+}
+
+.HeaderTarefas{
+    width: 80%;
+}
+
+.opcoes{
+    display: flex;
+    width: 100%;
+    gap: 10px;
+}
+
+.TarefaHeader{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.HeaderEsquerda, .HeaderDireita{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.HeaderDireita{
+    justify-content: flex-end;
+}
+
+.Descricao{
+    max-height: 0;
+    overflow: hidden;
+}
+
+.Aberto{
+    max-height: fit-content;
+}
+
+.ExibirDesc{
+    padding: 0.3em 0.5em;
+    border-radius: 20px;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.ExibirDesc:hover{
+    background-color: var(--desfoque);
+}
+
+.AtualizarIcon, .RemoverIcon{
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.AtualizarIcon:hover{
+    color: green;
+}
+
+.RemoverIcon:hover{
+    color: var(--vibrante);
+}

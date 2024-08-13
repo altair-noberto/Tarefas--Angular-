@@ -1,0 +1,28 @@
+<div class="tarefa">
+    <div class="Tarefa">
+        <div class="TarefaHeader">
+            <div class="HeaderEsquerda">
+                <i (click)="Abrir()" id="btn{{tarefa?.id}}" class="ExibirDesc fa-solid fa-caret-right"></i>
+                <h3>{{tarefa?.titulo}} - {{tarefa?.id}}</h3>
+            </div>
+            <div class="HeaderDireita">
+                <i (click)="AtivarEdicao(tarefa?.id)" class="AtualizarIcon fa-solid fa-pencil"></i>
+                <i class="RemoverIcon fa-solid fa-trash"></i>
+            </div>
+        </div>
+        @if(EditarId === tarefa?.id && ModoEditar === true){
+            <div class="CriarForm">
+                <form>
+                    <input class="InputTxt" value="{{tarefa?.titulo}}" placeholder="Título da tarefa" type="text" name="" id="">
+                    <textarea class="InputTxt" value="{{tarefa?.descricao}}" placeholder="Descrição da tarefa" name="" id=""></textarea>
+                    <div class="SubmitCriar">
+                        <input type="submit" value="Atualizar tarefa">
+                    </div>
+                </form>
+            </div>
+        }
+        @else{
+            <p id="desc{{tarefa?.id}}" class="Descricao">{{tarefa?.descricao}}</p>
+        }
+    </div>
+</div>

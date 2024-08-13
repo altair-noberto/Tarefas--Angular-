@@ -1,0 +1,5 @@
+<div class="NotificacaoWrapper">
+    <div *ngIf="NotificarObj?.Notificacao" class="Notificacao">
+        <p class="NotificacaoText"><i [ngClass]="NotificarObj?.NotificacaoCheck ? 'fa-solid fa-circle-check' : 'fa-solid fa-circle-xmark'"></i> {{NotificarObj?.NotificacaoMsg}}</p>
+    </div>
+</div>
