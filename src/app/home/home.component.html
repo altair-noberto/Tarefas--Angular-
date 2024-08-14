@@ -1,10 +1,13 @@
 <nav>
-    <div><a (click)="Logout()">Desconectar</a></div>
+    <div>
+        <i (click)="DarkLight()" id="DarkLight" class="fa-solid fa-moon"></i>
+        <a (click)="Logout()">Desconectar</a>
+    </div>
 </nav>
 
 <div class="HomeDiv">
     <header>
-        <h1>Olá, {{NomeUsuario}}!</h1>
+        <h1>Olá, <span style="color: var(--main);">{{NomeUsuario}}!</span></h1>
         <app-notificacao [NotificarObj]="notificacao"></app-notificacao>
     </header>
     <div class="TarefaHeader">
@@ -25,7 +28,7 @@
         }
         <div class="ListaTarefas">
             @for(t of ExibirTarefa; track $index){
-                <app-tarefa [tarefa]="t"></app-tarefa>
+                <app-tarefa [tarefa]="t" (Atualizar)="AtualizarTarefa($event)" (Remover)="RemoverTarefa($event)"></app-tarefa>
             }
         </div>
     </div>

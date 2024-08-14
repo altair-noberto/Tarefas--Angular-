@@ -29,7 +29,7 @@ body.dark{
     --bg: hsl(0, 12%, 9%);
     --bg-container: #0d0c0c;
     --vibrante: #DC2011;
-    --dark: #380F17;
+    --dark: #521622;
     --box-shadow: rgba(0, 0, 0, 0.2) 0px 7px 29px 0px;
 }
 
@@ -59,7 +59,7 @@ form{
     background-color: transparent;
     color: var(--desfoque);
     height: 55px;
-    padding: 0 0.8rem;
+    padding: 0 0.8em;
     outline: none;
     width: 100%;
     transition: 0.2s;
@@ -99,13 +99,13 @@ button:hover:not(:disabled), input[type="submit"]:hover:not(:disabled){
 .container{
     background-color: var(--bg-container);
     padding: 2em;
-    width: 90%;
 }
 
 .paginacao{
     display: flex;
     justify-content: center;
     gap: 10px;
+    margin-bottom: 20px;
 }
 
 .paginacao > a:not(.atual) {
@@ -134,4 +134,8 @@ textarea{
     padding: 0.8em;
     min-height: 100px;
     font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+textarea.InputTxt{
+    padding: 0.8em 0.8em;
 }

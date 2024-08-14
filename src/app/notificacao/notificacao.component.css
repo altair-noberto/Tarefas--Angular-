@@ -1,0 +1,50 @@
+.NotificacaoWrapper{
+    width: 90%;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.Notificacao{
+    position: absolute;
+    top: 20px;
+    padding: 2em;
+    background-color: var(--bg-container);
+    border-bottom: 3px solid var(--main);
+    width: fit-content;
+    animation: ExibirNotificacao 4s forwards;
+}
+
+.NotificacaoText{
+    font-size: 1.3em;
+}
+
+.fa-circle-xmark{
+    color: var(--vibrante);
+}
+
+.fa-circle-check{
+    color: green;
+}
+
+@keyframes ExibirNotificacao{
+    0%{
+        opacity: 0;
+        transform: translateY(-50px)
+    }
+    25%{
+        opacity: 100;
+        transform: translateY(0)
+    }
+    50%{
+        opacity: 100;
+        transform: translateY(0)
+    }
+    75%{
+        opacity: 100;
+        transform: translateY(0)
+    }
+    100%{
+        opacity: 0;
+        transform: translateY(-50px)
+    }
+}

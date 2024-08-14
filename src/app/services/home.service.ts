@@ -35,4 +35,13 @@ export class HomeService {
                 headers: {"Authorization": `Bearer ${Token}`}
             });
     }
+
+    AtualizarTarefa(tarefa:Tarefa, Token:string){
+        let titulo = tarefa.titulo;
+        let descricao = tarefa.descricao
+        return this._httpClient.put<String>(VariaveisGlobais.URL + 'api/Tarefas/' + tarefa.id, {titulo, descricao},
+            {
+                headers: {"Authorization": `Bearer ${Token}`},
+            })
+    }
 }

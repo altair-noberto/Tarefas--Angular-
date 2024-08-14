@@ -7,14 +7,14 @@
             </div>
             <div class="HeaderDireita">
                 <i (click)="AtivarEdicao(tarefa?.id)" class="AtualizarIcon fa-solid fa-pencil"></i>
-                <i class="RemoverIcon fa-solid fa-trash"></i>
+                <i (click)="RemoverTarefa(tarefa?.id)" class="RemoverIcon fa-solid fa-trash"></i>
             </div>
         </div>
         @if(EditarId === tarefa?.id && ModoEditar === true){
             <div class="CriarForm">
-                <form>
-                    <input class="InputTxt" value="{{tarefa?.titulo}}" placeholder="Título da tarefa" type="text" name="" id="">
-                    <textarea class="InputTxt" value="{{tarefa?.descricao}}" placeholder="Descrição da tarefa" name="" id=""></textarea>
+                <form [formGroup]="AtualizarForm" (submit)="AtualizarTarefa()">
+                    <input class="InputTxt" placeholder="{{tarefa?.titulo}}" type="text" formControlName="titulo">
+                    <textarea class="InputTxt" placeholder="{{tarefa?.descricao}}" formControlName="descricao"></textarea>
                     <div class="SubmitCriar">
                         <input type="submit" value="Atualizar tarefa">
                     </div>

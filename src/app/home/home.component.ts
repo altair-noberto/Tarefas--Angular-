@@ -31,6 +31,8 @@ export class HomeComponent implements OnInit{
 
   Busca:string = '';
 
+  Dark:boolean = false;
+
   Paginas:number = 1;
 
   PaginaAtual:number = 1;
@@ -63,6 +65,9 @@ export class HomeComponent implements OnInit{
               
       if(result === 200){
           this.ObterTarefas()
+          if(localStorage.getItem('Dark') === 'true'){
+            this.DarkLight();
+          }
           return
       }
       this.router.navigate(['/login'])
@@ -178,7 +183,8 @@ export class HomeComponent implements OnInit{
     })
   }
 
-  RemoverTarefa(id:number){
+  RemoverTarefa(event:Event): void{
+    let id = Number(event);
     this.homeService.RemoverTarefa(id, VariaveisGlobais.Token).subscribe(result => {
       
     }, error => {
@@ -190,4 +196,33 @@ export class HomeComponent implements OnInit{
       this.Notificar('Não foi possível remover a tarefa', false)
       })
   }
+
+  AtualizarTarefa(tarefa:Tarefa){
+    this.homeService.AtualizarTarefa(tarefa, VariaveisGlobais.Token).subscribe(result => {
+
+    }, error => {
+      if(error.status === 200){
+        this.Notificar('Tarefa atualizada com sucesso!', true)
+        this.ObterTarefas();
+        return;
+      }
+      this.Notificar('Não foi possível atualizar a tarefa', false)
+    })
+  }
+
+  DarkLight(){
+    const body = document.body
+    if(this.Dark){
+      body.classList.remove('dark');
+      this.Dark = false
+      localStorage.setItem('Dark', 'false');
+    }
+    else{
+      body.classList.add('dark');
+      this.Dark = true
+      localStorage.setItem('Dark', 'true');
+    }
+  }
 }
+
+

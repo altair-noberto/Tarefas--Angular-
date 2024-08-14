@@ -6,10 +6,6 @@
     padding: 0.5em 1em;
 }
 
-.HeaderTarefas{
-    width: 80%;
-}
-
 .opcoes{
     display: flex;
     width: 100%;
@@ -38,6 +34,7 @@
 
 .Aberto{
     max-height: fit-content;
+    line-break: anywhere;
 }
 
 .ExibirDesc{
@@ -63,4 +60,15 @@
 
 .RemoverIcon:hover{
     color: var(--vibrante);
+}
+
+@media screen and (max-width: 432px) {
+    .TarefaHeader{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .HeaderDireita{
+        justify-content: flex-start;
+    }
 }

@@ -5,7 +5,10 @@ nav{
 }
 
 nav > div {
+    display: flex;
+    align-items: center;
     padding: 2em;
+    gap: 20px;
 }
 
 nav > div > a {
@@ -21,10 +24,33 @@ nav > div > a:hover{
     color: var(--main);
 }
 
+#DarkLight{
+    padding: 0.3em 0.4em;
+    font-size: 1.2rem;
+    transition: 0.2s;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#DarkLight:hover{
+    background-color: var(--dark);
+    color: var(--bg-container);
+}
+
+header{
+    min-height: 30vh;
+    display: flex;
+    align-items: center;
+}
+
+header > h1{
+    font-size: 5rem;
+}
+
 .HomeDiv{
     display: flex;
     flex-direction: column;
-    margin: 0 3em;
+    margin: 10px 3em;
     gap: 20px;
 }
 
@@ -51,6 +77,13 @@ nav > div > a:hover{
     color: var(--vibrante);
 }
 
+.ListaTarefas{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 15px;
+}
+
 .NotificacaoWrapper{
     width: 90%;
     display: flex;
@@ -60,7 +93,6 @@ nav > div > a:hover{
 .Notificacao{
     position: absolute;
     top: 20px;
-    /* left: 200px; */
     padding: 2em;
     background-color: var(--bg-container);
     border-bottom: 3px solid var(--main);
@@ -78,27 +110,4 @@ nav > div > a:hover{
 
 .fa-circle-check{
     color: green;
-}
-
-@keyframes ExibirNotificacao{
-    0%{
-        opacity: 0;
-        transform: translateY(-50px)
-    }
-    25%{
-        opacity: 100;
-        transform: translateY(0)
-    }
-    50%{
-        opacity: 100;
-        transform: translateY(0)
-    }
-    75%{
-        opacity: 100;
-        transform: translateY(0)
-    }
-    100%{
-        opacity: 0;
-        transform: translateY(-50px)
-    }
 }
