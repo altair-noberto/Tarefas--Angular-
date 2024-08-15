@@ -1,10 +1,4 @@
-<nav>
-    <div>
-        <i (click)="DarkLight()" id="DarkLight" class="fa-solid fa-moon"></i>
-        <a (click)="Logout()">Desconectar</a>
-    </div>
-</nav>
-
+<app-navbar></app-navbar>
 <div class="HomeDiv">
     <header>
         <h1>Olá, <span style="color: var(--main);">{{NomeUsuario}}!</span></h1>
@@ -33,6 +27,10 @@
         </div>
     </div>
     <div class="paginacao">
+        <a [ngClass]="PaginaAtual === 1 ? 'atual' : ''" (click)="PaginaAtual > 1 ? CarregarTarrefas(1) : ''"><i class="fa-solid fa-angles-left"></i></a>
+        <a [ngClass]="PaginaAtual === 1 ? 'atual' : ''" (click)="PaginaAtual > 1 ? CarregarTarrefas(PaginaAtual - 1) : ''"><i class="fa-solid fa-angle-left"></i></a>
         <a [ngClass]="p === PaginaAtual ? 'atual' : ''" *ngFor="let p of ListPaginas" (click)="CarregarTarrefas(p)">{{p}}</a>
+        <a [ngClass]="PaginaAtual === Paginas ? 'atual' : ''" (click)="PaginaAtual < Paginas ? CarregarTarrefas(PaginaAtual + 1) : ''"><i class="fa-solid fa-angle-right"></i></a>
+        <a [ngClass]="PaginaAtual === Paginas ? 'atual' : ''" (click)="PaginaAtual < Paginas ? CarregarTarrefas(Paginas) : ''"><i class="fa-solid fa-angles-right"></i></a>
     </div>
 </div>

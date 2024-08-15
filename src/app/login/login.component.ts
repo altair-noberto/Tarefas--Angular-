@@ -1,15 +1,15 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { VariaveisGlobais, Data } from '../../environments/environments';
 import { Router } from '@angular/router';
 import { LoginService } from '../services/login.service';
-import { Credenciais, CredenciaisCadastro, LoginResult } from '../models/login.model';
+import { Credenciais, CredenciaisCadastro } from '../models/login.model';
+import { NavbarComponent } from '../navbar/navbar.component';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule],
+  imports: [ReactiveFormsModule, CommonModule, NavbarComponent],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })

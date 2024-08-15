@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100vh; width: 100vw; }
+html, body { width: 95vw;}
 
 *{
     color: var(--font);
@@ -47,7 +47,7 @@ form{
 
 .formLabel{
     display: inline-block;
-    background-color: var(--bg);
+    background-color: var(--bg-container);
     margin-bottom: 10px;
     position: absolute;
     padding: 0 10px;
@@ -108,23 +108,23 @@ button:hover:not(:disabled), input[type="submit"]:hover:not(:disabled){
     margin-bottom: 20px;
 }
 
-.paginacao > a:not(.atual) {
+.paginacao > a:not(.atual), .paginacao > a:not(.atual) > i {
     cursor: pointer;
     transition: 0.2s;
 }
 
-.paginacao > a:hover:not(.atual){
+.paginacao > a:hover:not(.atual), .paginacao > a:hover:not(.atual) > i{
     color: var(--main);
 }
 
-.paginacao > a.atual{
+.paginacao > a.atual, .paginacao > a.atual > i{
     color: var(--desfoque)
 }
 
 .CriarForm{
     padding: 1em 0;
-    box-shadow: var(--box-shadow);
-    background-color: hsl(0, 4%, 5%);
+    background-color: var(--bg-container);
+    width: 90%;
 }
 
 textarea{

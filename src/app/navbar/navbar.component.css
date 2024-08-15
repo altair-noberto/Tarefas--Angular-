@@ -1,0 +1,50 @@
+nav{
+    width: 100%;
+    display: flex;
+    position: absolute;
+    flex-direction: row-reverse;
+}
+
+nav > div {
+    display: flex;
+    align-items: center;
+    padding: 2em;
+    gap: 20px;
+}
+
+nav > div > a {
+    text-decoration: underline;
+    font-size: 1.2rem;
+    color: var(--font);
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+nav > div > a:hover{
+    color: var(--main);
+}
+
+#DarkLight{
+    padding: 0.3em 0.4em;
+    font-size: 1.2rem;
+    transition: 0.2s;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#DarkLight:hover{
+    background-color: var(--dark);
+    color: var(--bg-container);
+}
+
+@media screen and (max-width: 450px){
+    nav{
+        align-items: center;
+        justify-content: center;
+        position: initial;
+    }
+    nav > div{
+        padding: 1em 1em;
+    }
+}

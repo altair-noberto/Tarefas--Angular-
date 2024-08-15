@@ -7,12 +7,13 @@ import { CommonModule } from '@angular/common';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TarefaComponent } from '../tarefa/tarefa.component';
 import { NotificacaoComponent } from '../notificacao/notificacao.component';
+import { NavbarComponent } from '../navbar/navbar.component';
 
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, FormsModule, ReactiveFormsModule, TarefaComponent, NotificacaoComponent],
+  imports: [NavbarComponent, CommonModule, FormsModule, ReactiveFormsModule, TarefaComponent, NotificacaoComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
@@ -65,17 +66,9 @@ export class HomeComponent implements OnInit{
               
       if(result === 200){
           this.ObterTarefas()
-          if(localStorage.getItem('Dark') === 'true'){
-            this.DarkLight();
-          }
           return
       }
       this.router.navigate(['/login'])
-  }
-
-  Logout(){
-    document.cookie = 'token' + "=" + ";expires=Thu, 01 Jan 1970 00:00:01 GMT";
-    this.router.navigate(['/login'])
   }
 
   ObterTarefas(){
@@ -84,7 +77,7 @@ export class HomeComponent implements OnInit{
       this.ListaTarefas = this.ListaTarefas.sort(function(a, b){
         return b.id - a.id
       })
-      this.Paginas = Math.ceil(this.ListaTarefas.length / 10);
+      this.Paginas = Math.ceil(this.ListaTarefas.length / 8);
       this.CarregarTarrefas(this.PaginaAtual);
     });
   }
@@ -134,9 +127,9 @@ export class HomeComponent implements OnInit{
 
     this.ExibirTarefa = [];
 
-    let TarefasFinal = Pagina * 10;
+    let TarefasFinal = Pagina * 8;
 
-    let TarefasInicial:number = TarefasFinal - 10;
+    let TarefasInicial:number = TarefasFinal - 8;
 
     this.PaginaAtual = Pagina;
         
@@ -184,6 +177,7 @@ export class HomeComponent implements OnInit{
   }
 
   RemoverTarefa(event:Event): void{
+    if(confirm("Tem certeza que deseja remover a tarefa?")){
     let id = Number(event);
     this.homeService.RemoverTarefa(id, VariaveisGlobais.Token).subscribe(result => {
       
@@ -195,6 +189,7 @@ export class HomeComponent implements OnInit{
       }
       this.Notificar('Não foi possível remover a tarefa', false)
       })
+    }
   }
 
   AtualizarTarefa(tarefa:Tarefa){
@@ -208,20 +203,6 @@ export class HomeComponent implements OnInit{
       }
       this.Notificar('Não foi possível atualizar a tarefa', false)
     })
-  }
-
-  DarkLight(){
-    const body = document.body
-    if(this.Dark){
-      body.classList.remove('dark');
-      this.Dark = false
-      localStorage.setItem('Dark', 'false');
-    }
-    else{
-      body.classList.add('dark');
-      this.Dark = true
-      localStorage.setItem('Dark', 'true');
-    }
   }
 }
 
