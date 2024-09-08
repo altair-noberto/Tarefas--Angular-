@@ -4,7 +4,7 @@
         <h1>Olá, <span style="color: var(--main);">{{NomeUsuario}}!</span></h1>
         <app-notificacao [NotificarObj]="notificacao"></app-notificacao>
     </header>
-    <div class="TarefaHeader">
+    <div class="TarefaHeader" style="margin: 0 auto; width: 92%;">
         <input class="InputTxt" style="width: 50%;" type="text" name="Busca" id="Busca" [(ngModel)]="Busca" (keyup)="CarregarTarefasBusca(Busca)" placeholder="Buscar tarefa"/>
     </div>
     <div class="container">

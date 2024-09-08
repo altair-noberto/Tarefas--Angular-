@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { width: 95vw;}
+html, body { width: 100%;}
 
 *{
     color: var(--font);
@@ -13,8 +13,8 @@ body {
     --main: #BF0813;
     --font: #2b2525;
     --desfoque: #7b828b;
-    --bg: #EFDFC5;
-    --bg-container: #e7d4b5;
+    --bg: #ffffff;
+    --bg-container: #f5f5f5;
     --vibrante: #DC2011;
     --dark: #380F17;
     --box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
